@@ -31,7 +31,7 @@ module.exports = {
     .addSubcommand((subcommand) =>
       subcommand
         .setName("search")
-        .setDescription("Searches for sogn based on provided keywords")
+        .setDescription("Searches for songs based on provided keywords")
         .addStringOption((option) =>
           option
             .setName("searchterms")
@@ -48,7 +48,7 @@ module.exports = {
     const queue = await client.player.createQueue(interaction.guild, {
       metadata: interaction.channel,
       autoSelfDeaf: false,
-      leaveOnEnd: true,
+      leaveOnEnd: false,
       leaveOnEmpty: true,
     });
     if (!queue.connection)
@@ -113,5 +113,26 @@ module.exports = {
     await interaction.editReply({
       embeds: [embed],
     });
+
+    //custom timers to exit
+    setInterval(function () {
+      const queue = client.player.getQueue(interaction.guildId);
+
+      if (!queue?.playing) {
+        queue?.destroy();
+        // console.log("30");
+      }
+      //   console.log(11);
+    }, 600000);
+
+    setInterval(function () {
+      const queue = client.player.getQueue(interaction.guildId);
+
+      if (queue?.setPaused(false)) {
+        queue?.destroy();
+        // console.log("31");
+      }
+      //   console.log(22);
+    }, 601000);
   },
 };
