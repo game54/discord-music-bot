@@ -50,6 +50,8 @@ module.exports = {
       autoSelfDeaf: false,
       leaveOnEnd: false,
       leaveOnEmpty: true,
+      leaveOnEmptyCooldown: 5000,
+      initialVolume: 75,
     });
     if (!queue.connection)
       await queue.connect(interaction.member.voice.channel);
@@ -118,21 +120,26 @@ module.exports = {
     setInterval(function () {
       const queue = client.player.getQueue(interaction.guildId);
 
+      console.log(queue?.playing);
+
       if (!queue?.playing) {
         queue?.destroy();
-        // console.log("30");
+        console.log("Activated queue plying");
       }
-      //   console.log(11);
+      console.log("queue plaing not active");
     }, 600000);
 
-    setInterval(function () {
-      const queue = client.player.getQueue(interaction.guildId);
+    // setInterval(function () {
+    //   const queue = client.player.getQueue(interaction.guildId);
+    //   console.log(queue?.setPaused());
+    //   console.log(queue?.setPaused(true));
+    //   console.log(queue?.setPaused(false));
 
-      if (queue?.setPaused(false)) {
-        queue?.destroy();
-        // console.log("31");
-      }
-      //   console.log(22);
-    }, 601000);
+    //   if (queue?.setPaused()) {
+    //     queue?.destroy();
+    //     console.log("Activated pause");
+    //   }
+    //   console.log("pause not active");
+    // }, 15100);
   },
 };
