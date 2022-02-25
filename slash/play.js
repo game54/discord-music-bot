@@ -120,13 +120,11 @@ module.exports = {
     setInterval(function () {
       const queue = client.player.getQueue(interaction.guildId);
 
-      console.log(queue?.playing);
-
       if (!queue?.playing) {
         queue?.destroy();
         console.log("Activated queue plying");
       }
-      console.log("queue plaing not active");
+      console.log("queue playing not active");
     }, 600000);
 
     // setInterval(function () {
