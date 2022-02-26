@@ -18,7 +18,8 @@ module.exports = {
       "Music has been paused! Use `/resume` to resume the music"
     );
     setTimeout(() => {
-      queue.destroy();
-    }, 1800000);
+      queue?.destroy();
+      console.log("60 minutes leaving channel activated");
+    }, 3600000);
   },
 };

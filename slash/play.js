@@ -122,9 +122,9 @@ module.exports = {
 
       if (!queue?.playing) {
         queue?.destroy();
-        console.log("Activated queue plying");
+        console.log("No active queue. Leaving channel");
       }
-      console.log("queue playing not active");
+      // console.log("queue playing not active");
     }, 600000);
 
     // setInterval(function () {
