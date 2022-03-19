@@ -1,4 +1,4 @@
-require("discord-player/smoothVolume");
+// require("discord-player/smoothVolume");
 
 const Discord = require("discord.js");
 const dotenv = require("dotenv");

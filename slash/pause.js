@@ -17,9 +17,9 @@ module.exports = {
     await interaction.editReply(
       "Music has been paused! Use `/resume` to resume the music"
     );
-    setTimeout(() => {
-      queue?.destroy();
-      console.log("60 minutes leaving channel activated");
-    }, 3600000);
+    // setTimeout(() => {
+    //   queue?.destroy();
+    //   console.log("60 minutes leaving channel activated");
+    // }, 3600000);
   },
 };
